@@ -1,14 +1,19 @@
 FROM php:7.2-cli
 
-RUN apt-get update && \
-    apt-get -y install curl gnupg && \
+RUN apt-get update && apt-get -y install \
+    curl \
+    gnupg \
+    libzip-dev \
+    zip \
+    && \
     curl -sL https://deb.nodesource.com/setup_11.x  | bash - && \
     apt-get -y install nodejs
 
-RUN docker-php-ext-install zip
+# https://stackoverflow.com/a/48700777/486917
+RUN docker-php-ext-configure zip --with-libzip \
+    && docker-php-ext-install zip
 RUN pecl install redis-4.0.1 \
     && docker-php-ext-enable redis
-
 
 # credit https://stackoverflow.com/a/42147748/486917
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
