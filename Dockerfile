@@ -5,7 +5,7 @@ RUN apt-get update && \
     curl -sL https://deb.nodesource.com/setup_11.x  | bash - && \
     apt-get -y install nodejs
 
-#RUN docker-php-ext-install pdo pdo_mysql mbstring
+RUN docker-php-ext-install zip
 RUN pecl install redis-4.0.1 \
     && docker-php-ext-enable redis
 
