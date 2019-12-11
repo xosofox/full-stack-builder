@@ -7,6 +7,7 @@ RUN apt-get update && apt-get -y install \
     zip \
     rsync \
     ssh \
+    git \
     && \
     curl -sL https://deb.nodesource.com/setup_11.x  | bash - && \
     apt-get -y install nodejs
