@@ -16,7 +16,7 @@ RUN apt-get update && apt-get -y install \
 # https://stackoverflow.com/a/48700777/486917
 RUN docker-php-ext-configure zip \
     && docker-php-ext-install zip
-RUN pecl install redis-4.0.1 \
+RUN pecl install redis-5.3.4 \
     && docker-php-ext-enable redis
 RUN docker-php-ext-install gmp
 
