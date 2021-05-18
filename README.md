@@ -1,9 +1,10 @@
 # full-stack-builder
 
-Docker image with php7, composer, nodejs and some build/deploy helpers (git, rsync, ssh)
+Docker image with php, composer, nodejs/npm and some build/deploy helpers (git, rsync, ssh)
 
 ### 2.x PHP 8
 
+* 2.1.*: PHP8, node14, yarn
 * 2.0.*: PHP8, update node to 14
 
 ### 1.x PHP 7
