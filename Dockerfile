@@ -14,7 +14,7 @@ RUN apt-get update && apt-get -y install \
     apt-get -y install nodejs
 
 # https://stackoverflow.com/a/48700777/486917
-RUN docker-php-ext-configure zip --with-libzip \
+RUN docker-php-ext-configure zip \
     && docker-php-ext-install zip
 RUN pecl install redis-4.0.1 \
     && docker-php-ext-enable redis
