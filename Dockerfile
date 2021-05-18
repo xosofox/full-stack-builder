@@ -20,6 +20,8 @@ RUN pecl install redis-5.3.4 \
     && docker-php-ext-enable redis
 RUN docker-php-ext-install gmp
 
+# yarn
+RUN npm install --global yarn
 
 # credit https://stackoverflow.com/a/42147748/486917
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
