@@ -1,4 +1,4 @@
-FROM php:7.2-cli
+FROM php:8.0-cli-buster
 
 RUN apt-get update && apt-get -y install \
     curl \
@@ -10,7 +10,7 @@ RUN apt-get update && apt-get -y install \
     ssh \
     git \
     && \
-    curl -sL https://deb.nodesource.com/setup_12.x  | bash - && \
+    curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
     apt-get -y install nodejs
 
 # https://stackoverflow.com/a/48700777/486917
