@@ -3,6 +3,7 @@ FROM php:8.0-cli-buster
 RUN apt-get update && apt-get -y install \
     curl \
     gnupg \
+    libzip-dev \
     libgmp-dev \
     zip \
     rsync \
