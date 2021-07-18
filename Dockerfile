@@ -2,6 +2,8 @@ FROM php:8.0-cli-buster
 
 RUN apt-get update && apt-get -y install \
     curl \
+    libcurl \
+    libcurl4-openssl-dev \
     gnupg \
     libzip-dev \
     libgmp-dev \
@@ -19,6 +21,7 @@ RUN docker-php-ext-configure zip \
 RUN pecl install redis-5.3.4 \
     && docker-php-ext-enable redis
 RUN docker-php-ext-install gmp
+RUN docker-php-ext-install curl
 
 # yarn
 RUN npm install --global yarn
