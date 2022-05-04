@@ -1,11 +1,11 @@
-FROM php:8.0-cli-buster
+FROM php:8.1-cli-buster
+
+COPY --from=mlocati/php-extension-installer:1.5.8 /usr/bin/install-php-extensions /usr/local/bin/
+
+RUN IPE_GD_WITHOUTAVIF=1 install-php-extensions gd zip redis gmp curl
 
 RUN apt-get update && apt-get -y install \
     curl \
-    libcurl4-openssl-dev \
-    gnupg \
-    libzip-dev \
-    libgmp-dev \
     zip \
     rsync \
     ssh \
@@ -13,14 +13,6 @@ RUN apt-get update && apt-get -y install \
     && \
     curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
     apt-get -y install nodejs
-
-# https://stackoverflow.com/a/48700777/486917
-RUN docker-php-ext-configure zip \
-    && docker-php-ext-install zip
-RUN pecl install redis-5.3.4 \
-    && docker-php-ext-enable redis
-RUN docker-php-ext-install gmp
-RUN docker-php-ext-install curl
 
 # yarn
 RUN npm install --global yarn
