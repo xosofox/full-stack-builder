@@ -1,5 +1,7 @@
 FROM php:7.2-cli
 
+RUN echo 'memory_limit = 256M' >> /usr/local/etc/php/conf.d/memory-limit.ini
+
 RUN apt-get update && apt-get -y install \
     curl \
     gnupg \
