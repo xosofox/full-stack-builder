@@ -4,7 +4,8 @@ Docker image with php, composer, nodejs/npm and some build/deploy helpers (git, 
 
 ### 2.x PHP 8
 
-* 2.2.*: PHP8.1, add php_gd, switch to mlocati/php-extension-installer
+* 2.3.*: PHP8.1, add php-intl
+* 2.2.*: PHP8.1, add php-gd, switch to mlocati/php-extension-installer
 * 2.1.4: add php_curl
 * 2.1.*: PHP8, node14, yarn
 * 2.0.*: PHP8, update node to 14
