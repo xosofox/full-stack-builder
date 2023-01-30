@@ -2,26 +2,18 @@ FROM php:7.2-cli
 
 RUN echo 'memory_limit = 256M' >> /usr/local/etc/php/conf.d/memory-limit.ini
 
+COPY --from=mlocati/php-extension-installer:1.5.8 /usr/bin/install-php-extensions /usr/local/bin/
+
+RUN IPE_GD_WITHOUTAVIF=1 install-php-extensions gd zip redis gmp curl intl
+
 RUN apt-get update && apt-get -y install \
     curl \
-    gnupg \
-    libzip-dev \
-    libgmp-dev \
-    zip \
     rsync \
     ssh \
     git \
     && \
-    curl -sL https://deb.nodesource.com/setup_12.x  | bash - && \
+    curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
     apt-get -y install nodejs
-
-# https://stackoverflow.com/a/48700777/486917
-RUN docker-php-ext-configure zip --with-libzip \
-    && docker-php-ext-install zip
-RUN pecl install redis-4.0.1 \
-    && docker-php-ext-enable redis
-RUN docker-php-ext-install gmp
-
 
 # credit https://stackoverflow.com/a/42147748/486917
 RUN curl -o /tmp/composer-setup.php https://getcomposer.org/installer \
