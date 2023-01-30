@@ -1,8 +1,8 @@
 FROM php:8.1-cli-buster
 
-COPY --from=mlocati/php-extension-installer:1.5.8 /usr/bin/install-php-extensions /usr/local/bin/
+COPY --from=mlocati/php-extension-installer:2.5.2 /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN IPE_GD_WITHOUTAVIF=1 install-php-extensions gd zip redis gmp curl intl
+RUN IPE_GD_WITHOUTAVIF=1 install-php-extensions gd zip redis gmp curl intl pdo mysqli
 
 RUN apt-get update && apt-get -y install \
     curl \
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get -y install \
     ssh \
     git \
     && \
-    curl -sL https://deb.nodesource.com/setup_14.x  | bash - && \
+    curl -sL https://deb.nodesource.com/setup_18.x  | bash - && \
     apt-get -y install nodejs
 
 # yarn
