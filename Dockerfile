@@ -2,7 +2,7 @@ FROM php:8.1-cli-buster
 
 COPY --from=mlocati/php-extension-installer:2.5.2 /usr/bin/install-php-extensions /usr/local/bin/
 
-RUN IPE_GD_WITHOUTAVIF=1 install-php-extensions gd zip redis gmp curl intl pdo mysqli
+RUN IPE_GD_WITHOUTAVIF=1 install-php-extensions mysqli pdo pdo_mysql gd zip redis gmp curl intl
 
 RUN apt-get update && apt-get -y install \
     curl \
