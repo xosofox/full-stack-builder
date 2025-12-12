@@ -1,6 +1,6 @@
-FROM php:8.1-cli-buster
+FROM php:8.3-cli-buster
 
-COPY --from=mlocati/php-extension-installer:2.5.2 /usr/bin/install-php-extensions /usr/local/bin/
+COPY --from=mlocati/php-extension-installer:2.9.20 /usr/bin/install-php-extensions /usr/local/bin/
 
 RUN IPE_GD_WITHOUTAVIF=1 install-php-extensions mysqli pdo pdo_mysql gd zip redis gmp curl intl
 
