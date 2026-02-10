@@ -3,7 +3,8 @@
 Docker image with php, composer, nodejs/npm and some build/deploy helpers (git, rsync, ssh)
 
 ### 3.x PHP 8.3
-* 3.0.0: PHP8.3, node18
+* 3.0.1: PHP8.3 bookworm, node18
+* 3.0.0: PHP8.3 buster, node18
 
 ### 2.x PHP 8
 

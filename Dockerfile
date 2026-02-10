@@ -1,4 +1,4 @@
-FROM php:8.3-cli-buster
+FROM php:8.3-cli-bookworm
 
 COPY --from=mlocati/php-extension-installer:2.9.20 /usr/bin/install-php-extensions /usr/local/bin/
 
