@@ -1,4 +1,4 @@
-FROM php:8.3-cli-bookworm
+FROM php:8.5-cli-bookworm
 
 COPY --from=mlocati/php-extension-installer:2.9.20 /usr/bin/install-php-extensions /usr/local/bin/
 
@@ -11,7 +11,7 @@ RUN apt-get update && apt-get -y install \
     ssh \
     git \
     && \
-    curl -sL https://deb.nodesource.com/setup_18.x  | bash - && \
+    curl -sL https://deb.nodesource.com/setup_24.x  | bash - && \
     apt-get -y install nodejs
 
 # yarn
